@@ -185,3 +185,16 @@ The current automated test verifies that the Spring application context loads su
 - Add filtering, sorting, and pagination
 - Add GitHub Actions continuous integration
 - Replace the local in-memory database with PostgreSQL and Flyway migrations
+
+
+
+2026/10/11
+Controller Tests Built out
+- `getAllDeployments_returnsEmptyList()`: Verifies that `GET /deployments` returns an empty list when no deployments exist.
+- `getDeploymentById_returnsDeploymentWhenFound()`: Verifies that `GET /deployments/{id}` returns the matching deployment.
+- `getDeploymentById_returnsNotFoundWhenMissing()`: Verifies that `GET /deployments/{id}` returns `404 Not Found` when the deployment does not exist.
+- `createDeployment_returnsCreatedDeployment()`: Verifies that a valid request returns `201 Created` with the created deployment.
+- `createDeployment_returnsBadRequestForInvalidBody()`: Verifies that an invalid request body returns `400 Bad Request` and does not call the service.
+
+Service Test
+- `createDeployment_savesDeployment()`: Verifies that the service creates a deployment with the correct values and passes it to the repository for saving.
