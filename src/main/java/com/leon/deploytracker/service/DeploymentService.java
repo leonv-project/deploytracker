@@ -20,13 +20,14 @@ public class DeploymentService {
     }
 
     public Deployment createDeployment(CreateDeploymentRequest request) {
-        Deployment deployment = new Deployment();
+        Deployment deployment = new Deployment(
+                request.applicationName(),
+                request.environment(),
+                request.version(),
+                request.status(),
+                LocalDateTime.now()
+        );
 
-        deployment.setApplicationName(request.applicationName());
-        deployment.setEnvironment(request.environment());  
-        deployment.setVersion(request.version());
-        deployment.setStatus(request.status());
-        deployment.setDeployedAt(LocalDateTime.now());
 
         return deploymentRepository.save(deployment);
     }

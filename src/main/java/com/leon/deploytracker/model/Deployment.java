@@ -32,6 +32,14 @@ public class Deployment {
     public Deployment() {
     }
 
+    public Deployment(String applicationName, Environment environment, String version, Status status, LocalDateTime deployedAt) {
+        this.applicationName = applicationName;
+        this.environment = environment;
+        this.version = version;
+        this.status = status;
+        this.deployedAt = deployedAt;
+    }
+
     public Long getId() {
         return id;
     }
